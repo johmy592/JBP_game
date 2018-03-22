@@ -8,7 +8,7 @@ public class main
         TestMethods test = new TestMethods();
 
         Board board = new Board();
-        Player player1 = new AIPlayer("JBP");
+        Player player1 = new HumanPlayer("JBP");
         Player player2 = new AIPlayer("Other guy");
 
         player1.setDeck(test.makeTestDeck());

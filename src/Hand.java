@@ -28,4 +28,13 @@ public class Hand
     {
         cards.remove(c);
     }
+
+    void printHand()
+    {
+        System.out.println("HAND: ");
+        for(Card c : cards)
+        {
+            System.out.println(c.toStr());
+        }
+    }
 }
