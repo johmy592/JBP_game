@@ -4,6 +4,7 @@ public abstract class Card
     int cost;
     String description;
 
+
     protected Card(String name, int cost, String description)
     {
         this.name = name;
@@ -11,6 +12,10 @@ public abstract class Card
         this.description = description;
     }
 
+    String getName()
+    {
+        return name;
+    }
     String toStr()
     {
         return "Name: " + name + " Cost: " + cost + " Desc: " + description +"\n";

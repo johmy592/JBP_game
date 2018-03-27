@@ -8,10 +8,11 @@ public class Game
     Player currentPlayer;
     int currentPlayerIndex = 0;
     Move move;
+    GameFrame graphicsFrame;
 
-    public Game(ArrayList<Player> players, Board board)
+    public Game(Board board)
     {
-        this.players = players;
+        this.players = board.getPlayers();
         this.board = board;
         initGame();
     }
@@ -21,10 +22,11 @@ public class Game
         currentPlayer = players.get(0);
         for(Player p : players)
         {
-            board.addPlayer(p);
             p.draw(5);
         }
         gameState = GameState.INGAME;
+        graphicsFrame = new GameFrame(board);
+        graphicsFrame.setVisible(true);
     }
 
     void startGame()
@@ -37,6 +39,7 @@ public class Game
         while(true)
         {
             System.out.println(currentPlayer.getName() + " turn: \n");
+            currentPlayer.draw(1);
             playTurn();
             rotateTurn();
         }

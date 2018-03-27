@@ -7,13 +7,47 @@ public class Board
 {
     ArrayList<Player> players = new ArrayList<Player>();
     Map<Player,ArrayList<Card>> openCards = new HashMap<Player, ArrayList<Card>>();
+    HumanPlayer humanPlayer;
 
-    public Board(){}
-
+    public Board(ArrayList<Player> players, HumanPlayer humanPlayer)
+    {
+        this.humanPlayer = humanPlayer;
+        for(Player p : players)
+        {
+            addPlayer(p);
+        }
+    }
 
     Map<Player,ArrayList<Card>> getOpenCards()
     {
         return openCards;
+    }
+
+    ArrayList<Player> getPlayers()
+    {
+        return players;
+    }
+
+    HumanPlayer getHumanPlayer()
+    {
+        return humanPlayer;
+    }
+
+    Player getFirstAIPlayer()
+    {
+        for(Player p : players)
+        {
+            if(p != humanPlayer)
+            {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    void setHumanPlayer(HumanPlayer p)
+    {
+        humanPlayer = p;
     }
 
     void addPlayer(Player p)

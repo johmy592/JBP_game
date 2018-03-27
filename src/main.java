@@ -7,8 +7,7 @@ public class main
         System.out.println("Test");
         TestMethods test = new TestMethods();
 
-        Board board = new Board();
-        Player player1 = new HumanPlayer("JBP");
+        HumanPlayer player1 = new HumanPlayer("JBP");
         Player player2 = new AIPlayer("Other guy");
 
         player1.setDeck(test.makeTestDeck());
@@ -18,7 +17,8 @@ public class main
         players.add(player1);
         players.add(player2);
 
-        Game game = new Game(players,board);
+        Board board = new Board(players,player1);
+        Game game = new Game(board);
         game.startGame();
 
     }
