@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class Board
 {
+    public static final int MAX_NUM_OPEN_CARDS = 7;
+
     ArrayList<Player> players = new ArrayList<Player>();
     Map<Player,ArrayList<Card>> openCards = new HashMap<Player, ArrayList<Card>>();
     HumanPlayer humanPlayer;

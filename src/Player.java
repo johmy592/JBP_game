@@ -13,7 +13,6 @@ public abstract class Player
         this.name = name;
     }
 
-
     String getName()
     {
         return name;
@@ -23,6 +22,8 @@ public abstract class Player
     {
         return hand;
     }
+
+    Deck getDeck() { return deck; }
 
     void setDeck(Deck deck)
     {

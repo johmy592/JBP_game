@@ -11,6 +11,11 @@ public class Deck
         this.cards = cards;
     }
 
+    ArrayList<Card> getCards()
+    {
+        return cards;
+    }
+
     void addCard(Card c)
     {
         cards.add(c);

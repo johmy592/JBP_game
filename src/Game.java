@@ -14,19 +14,19 @@ public class Game
     {
         this.players = board.getPlayers();
         this.board = board;
+        gameState = GameState.INGAME;
+        graphicsFrame = new GameFrame(board);
+        currentPlayer = players.get(0);
         initGame();
+        graphicsFrame.setVisible(true);
     }
 
     void initGame()
     {
-        currentPlayer = players.get(0);
         for(Player p : players)
         {
             p.draw(5);
         }
-        gameState = GameState.INGAME;
-        graphicsFrame = new GameFrame(board);
-        graphicsFrame.setVisible(true);
     }
 
     void startGame()
@@ -54,6 +54,7 @@ public class Game
             if(checkMove(move))
             {
                 turnOver = executeMove(move);
+                graphicsFrame.repaint();
                 if(turnOver)
                 {
                     break;

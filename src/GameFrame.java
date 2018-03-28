@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class GameFrame extends JFrame
 {
-    OpenCardGraphicsComponent openCardGraphics;
+    OpenCardsGraphicsComponent openCardGraphics;
+    HumanPlayerGraphicsComponent humanPlayerGraphics;
     EnemyGraphicsComponent enemyGraphics;
     Board board;
 
@@ -18,36 +19,14 @@ public class GameFrame extends JFrame
         this.board = board;
         Container contentPane = this.getContentPane();
 
-        openCardGraphics = new OpenCardGraphicsComponent(board);
-        openCardGraphics.setPreferredSize(new Dimension(200,200));
-
+        humanPlayerGraphics = new HumanPlayerGraphicsComponent(board);
+        openCardGraphics = new OpenCardsGraphicsComponent(board);
         enemyGraphics = new EnemyGraphicsComponent(board.getFirstAIPlayer());
-        enemyGraphics.setPreferredSize(new Dimension(200,200));
 
-        contentPane.add(openCardGraphics,BorderLayout.PAGE_START);
-        contentPane.add(enemyGraphics,BorderLayout.PAGE_END);
+        contentPane.add(humanPlayerGraphics,BorderLayout.PAGE_END);
+        contentPane.add(enemyGraphics,BorderLayout.PAGE_START);
+        contentPane.add(openCardGraphics,BorderLayout.CENTER);
     }
 
-    public static void main(String[] args) {
-        System.out.println("Test");
-        TestMethods test = new TestMethods();
-
-
-        HumanPlayer player1 = new HumanPlayer("JBP");
-        Player player2 = new AIPlayer("Other guy");
-
-        player1.setDeck(test.makeTestDeck());
-        player2.setDeck(test.makeTestDeck());
-
-        ArrayList<Player> players = new ArrayList<Player>();
-        players.add(player1);
-        players.add(player2);
-
-        Board board = new Board(players,player1);
-        Game game = new Game(board);
-        game.startGame();
-
-
-    }
 
 }

@@ -6,6 +6,10 @@ import java.io.File;
 
 public class EnemyGraphicsComponent extends JComponent
 {
+
+    static final int CARD_WIDTH = 100;
+    static final int CARD_HEIGHT = 165;
+
     final String cardbackPath = "C:\\Users\\Johannes\\Desktop\\git_stuff\\JBP_game\\images\\cardback.jpg";
     final String placeholderPath = "C:\\Users\\Johannes\\Desktop\\git_stuff\\JBP_game\\images\\Cards.jpg";
     Player enemyPlayer;
@@ -44,7 +48,12 @@ public class EnemyGraphicsComponent extends JComponent
 
         for(int i = 0; i < enemyPlayer.getHand().getCards().size();i++)
         {
-            g2d.drawImage(cardbackGraphics,i*10,0,null);
+            g2d.drawImage(cardbackGraphics,i*CARD_WIDTH,0,null);
         }
+    }
+
+    public Dimension getPreferredSize()
+    {
+        return new Dimension(enemyPlayer.getHand().MAX_HAND_SIZE*CARD_WIDTH,CARD_HEIGHT);
     }
 }

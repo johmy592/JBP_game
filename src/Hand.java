@@ -2,11 +2,16 @@ import java.util.ArrayList;
 
 public class Hand
 {
+    public static final int MAX_HAND_SIZE = 5;
+
     ArrayList<Card> cards = new ArrayList<Card>();
 
     void addCard(Card c)
     {
-        cards.add(c);
+        if(cards.size() <= MAX_HAND_SIZE)
+        {
+            cards.add(c);
+        }
     }
 
     ArrayList<Card> getCards()
